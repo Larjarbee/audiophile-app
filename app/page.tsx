@@ -1,113 +1,159 @@
-import Image from "next/image";
+import Image from 'next/image';
+import HeroPng from '../assets/home/desktop/image-hero.jpg';
+import HeadphonePng from '../assets/shared/desktop/image-category-thumbnail-headphones.png';
+import SpeakerPng from '../assets/shared/desktop/image-category-thumbnail-speakers.png';
+import EarphonePng from '../assets/shared/desktop/image-category-thumbnail-earphones.png';
+import SpeakersPng from '../assets/home/desktop/image-speaker-zx9.png';
+import SpeakerZxPng from '../assets/home/desktop/image-speaker-zx7.jpg';
+import EarphoneZxPng from '../assets/home/desktop/image-earphones-yx1.jpg';
+import ManPng from '../assets/shared/desktop/image-best-gear.jpg';
+import { Button } from '@/components/ui/button';
+import { ChevronRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
+    <>
+      <section className='relative'>
         <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+          src={HeroPng}
+          sizes='100vw'
+          style={{
+            width: '100%',
+            height: 'auto',
+          }}
+          alt='hero'
         />
+
+        <div className='absolute space-y-5 top-[30%] left-40 text-Grey-dark'>
+          <h2 className='spacing opacity-40 font-light text-sm'>NEW PRODUCT</h2>
+          <h1 className=' text-6xl font-semibold'>
+            XX99 MARK II
+            <br />
+            HEADPHONES
+          </h1>
+          <h2 className='opacity-70'>
+            Experience natural, lifelike audio and exceptional
+            <br /> build quality made for the passionate music
+            <br /> enthusiast.
+          </h2>
+
+          <Button>SEE PRODUCT</Button>
+        </div>
+      </section>
+
+      <div className='max-w-6xl mx-auto my-28 space-y-20'>
+        <section className='grid grid-cols-1 gap-5 items-center md:grid-cols-3'>
+          {Categories.map((category, index) => (
+            <div
+              key={index}
+              className='text-center rounded-[10px] h-full bg-Grey-dark p-5'
+            >
+              <Image
+                src={category.img}
+                alt={category.name}
+                width={200}
+                className='mx-auto'
+              />
+              <h4 className=' font-semibold'>{category.name}</h4>
+
+              <Link
+                href='/'
+                className='flex justify-center gap-1 pt-2 text-sm items-center'
+              >
+                <h4 className=' opacity-50'>SHOP</h4>
+                <ChevronRight className=' text-primary' size={20} />
+              </Link>
+            </div>
+          ))}
+        </section>
+
+        <section className='background bg-primary rounded-[12px] flex justify-center gap-20 pt-10'>
+          <div>
+            <Image src={SpeakersPng} alt='Speaker' className='mx-auto' />
+          </div>
+          <div className='space-y-5 pt-10 text-Grey-dark'>
+            <h1 className=' text-6xl font-semibold'>
+              ZX9
+              <br />
+              SPEAKER
+            </h1>
+            <h2 className='opacity-80 text-sm'>
+              Upgrade to premium speakers that are
+              <br /> phenomenally built to deliver truly remarkable
+              <br /> sound.
+            </h2>
+
+            <Button variant='secondary'>SEE PRODUCT</Button>
+          </div>
+        </section>
+
+        <section className='relative rounded-[12px] overflow-hidden'>
+          <Image
+            src={SpeakerZxPng}
+            sizes='100vw'
+            style={{
+              width: '100%',
+              height: 'auto',
+            }}
+            alt='speaker'
+          />
+
+          <div className='absolute space-y-5 top-[30%] left-40 text-Black-dark'>
+            <h1 className=' text-5xl'>ZX7 SPEAKER</h1>
+            <Button variant='outline'>SEE PRODUCT</Button>
+          </div>
+        </section>
+
+        <section className='grid grid-cols-1 items-center gap-5 md:grid-cols-2'>
+          <div>
+            <Image
+              src={EarphoneZxPng}
+              alt='Earphone'
+              className='mx-auto rounded-[12px]'
+            />
+          </div>
+          <div className='rounded-[12px] bg-Grey-dark h-full flex flex-col items-center justify-center'>
+            <div className='space-y-5'>
+              <h1 className=' text-5xl'>YX1 EARPHONES</h1>
+              <Button variant='outline'>SEE PRODUCT</Button>
+            </div>
+          </div>
+        </section>
+
+        <section className='grid grid-cols-1 items-center gap-5 md:grid-cols-2'>
+          <div className='flex flex-col '>
+            <div className='space-y-5 max-w-[400px]'>
+              <h2 className='text-4xl font-semibold tracking-wider uppercase'>
+                Bringing you the
+                <br /> <span className='text-primary'>best</span> audio gear
+              </h2>
+              <h6 className='text-sm leading-6 opacity-60'>
+                Located at the heart of New York City, Audiophile is the premier
+                store for high end headphones, earphones, speakers, and audio
+                accessories. We have a large showroom and luxury demonstration
+                rooms available for you to browse and experience a wide range of
+                our products. Stop by our store to meet some of the fantastic
+                people who make Audiophile the best place to buy your portable
+                audio equipment.
+              </h6>
+            </div>
+          </div>
+          <div>
+            <Image
+              src={ManPng}
+              alt='Man with Earphone'
+              className='mx-auto rounded-[12px]'
+            />
+          </div>
+        </section>
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </>
   );
 }
+
+const Categories = [
+  { name: 'HEADPHONES', path: '/headphones', img: HeadphonePng },
+  { name: 'SPEAKERS', path: '/speakers', img: SpeakerPng },
+  { name: 'EARPHONES', path: '/earphones', img: EarphonePng },
+];
