@@ -3,6 +3,7 @@ import { Manrope } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/navbar/Header';
 import Footer from '@/components/navbar/Footer';
+import QueryConfigs from '@/configs/QueryConfigs';
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -23,9 +24,11 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={manrope.className}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <QueryConfigs>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </QueryConfigs>
       </body>
     </html>
   );

@@ -1,11 +1,15 @@
+'use client';
 import Link from 'next/link';
 import React from 'react';
 import FacebookSvg from '../../assets/shared/desktop/icon-facebook.svg';
 import InstagramSvg from '../../assets/shared/desktop/icon-instagram.svg';
 import TwitterSvg from '../../assets/shared/desktop/icon-twitter.svg';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 const Footer = () => {
+  const pathname = usePathname();
   return (
     <footer className='bg-Black-dark text-Grey-dark'>
       <div className='py-20 max-w-6xl mx-auto px-5 flex justify-between'>
@@ -27,7 +31,10 @@ const Footer = () => {
               <Link
                 key={index}
                 href={link.path}
-                className='text-sm font-normal tracking-widest hover:text-primary'
+                className={cn(
+                  pathname === link.path ? 'text-primary' : '',
+                  'text-sm font-normal tracking-widest hover:text-primary'
+                )}
               >
                 {link.name}
               </Link>

@@ -8,8 +8,8 @@ import SpeakerZxPng from '../assets/home/desktop/image-speaker-zx7.jpg';
 import EarphoneZxPng from '../assets/home/desktop/image-earphones-yx1.jpg';
 import ManPng from '../assets/shared/desktop/image-best-gear.jpg';
 import { Button } from '@/components/ui/button';
-import { ChevronRight } from 'lucide-react';
-import Link from 'next/link';
+import Category from '@/components/shared/Category';
+import BringCard from '@/components/shared/BringCard';
 
 export default function Home() {
   return (
@@ -27,7 +27,7 @@ export default function Home() {
 
         <div className='absolute space-y-5 top-[30%] left-40 text-Grey-dark'>
           <h2 className='spacing opacity-40 font-light text-sm'>NEW PRODUCT</h2>
-          <h1 className=' text-6xl font-semibold'>
+          <h1 className='text-6xl font-semibold'>
             XX99 MARK II
             <br />
             HEADPHONES
@@ -42,37 +42,14 @@ export default function Home() {
         </div>
       </section>
 
-      <div className='max-w-6xl mx-auto my-28 space-y-20'>
-        <section className='grid grid-cols-1 gap-5 items-center md:grid-cols-3'>
-          {Categories.map((category, index) => (
-            <div
-              key={index}
-              className='text-center rounded-[10px] h-full bg-Grey-dark p-5'
-            >
-              <Image
-                src={category.img}
-                alt={category.name}
-                width={200}
-                className='mx-auto'
-              />
-              <h4 className=' font-semibold'>{category.name}</h4>
+      <div className='max-w-6xl p-5 mx-auto my-14 space-y-20'>
+        <Category />
 
-              <Link
-                href='/'
-                className='flex justify-center gap-1 pt-2 text-sm items-center'
-              >
-                <h4 className=' opacity-50'>SHOP</h4>
-                <ChevronRight className=' text-primary' size={20} />
-              </Link>
-            </div>
-          ))}
-        </section>
-
-        <section className='background bg-primary rounded-[12px] flex justify-center gap-20 pt-10'>
+        <section className='background bg-primary rounded-[12px] flex justify-center gap-5 pt-10 flex-col md:flex-row md:gap-20'>
           <div>
             <Image src={SpeakersPng} alt='Speaker' className='mx-auto' />
           </div>
-          <div className='space-y-5 pt-10 text-Grey-dark'>
+          <div className='space-y-5 pt-0 pb-5 px-5 text-Grey-dark text-center md:text-start md:pt-10'>
             <h1 className=' text-6xl font-semibold'>
               ZX9
               <br />
@@ -114,39 +91,14 @@ export default function Home() {
             />
           </div>
           <div className='rounded-[12px] bg-Grey-dark h-full flex flex-col items-center justify-center'>
-            <div className='space-y-5'>
-              <h1 className=' text-5xl'>YX1 EARPHONES</h1>
+            <div className='space-y-5 p-5'>
+              <h1 className='text-4xl lg:text-5xl'>YX1 EARPHONES</h1>
               <Button variant='outline'>SEE PRODUCT</Button>
             </div>
           </div>
         </section>
 
-        <section className='grid grid-cols-1 items-center gap-5 md:grid-cols-2'>
-          <div className='flex flex-col '>
-            <div className='space-y-5 max-w-[400px]'>
-              <h2 className='text-4xl font-semibold tracking-wider uppercase'>
-                Bringing you the
-                <br /> <span className='text-primary'>best</span> audio gear
-              </h2>
-              <h6 className='text-sm leading-6 opacity-60'>
-                Located at the heart of New York City, Audiophile is the premier
-                store for high end headphones, earphones, speakers, and audio
-                accessories. We have a large showroom and luxury demonstration
-                rooms available for you to browse and experience a wide range of
-                our products. Stop by our store to meet some of the fantastic
-                people who make Audiophile the best place to buy your portable
-                audio equipment.
-              </h6>
-            </div>
-          </div>
-          <div>
-            <Image
-              src={ManPng}
-              alt='Man with Earphone'
-              className='mx-auto rounded-[12px]'
-            />
-          </div>
-        </section>
+        <BringCard />
       </div>
     </>
   );

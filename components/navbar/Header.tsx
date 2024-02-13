@@ -1,9 +1,13 @@
+'use client';
 import Link from 'next/link';
 import React from 'react';
 import CartSvg from '../../assets/shared/desktop/icon-cart.svg';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 const Header = () => {
+  const pathname = usePathname();
   return (
     <header className='bg-Black-dark text-Grey-dark fixed w-full z-10'>
       <nav className='py-6 max-w-6xl mx-auto border-b flex justify-between items-center px-5'>
@@ -13,7 +17,10 @@ const Header = () => {
             <Link
               key={index}
               href={link.path}
-              className='text-sm font-normal tracking-widest hover:text-primary'
+              className={cn(
+                pathname === link.path ? 'text-primary' : '',
+                'text-sm font-normal tracking-widest hover:text-primary'
+              )}
             >
               {link.name}
             </Link>
