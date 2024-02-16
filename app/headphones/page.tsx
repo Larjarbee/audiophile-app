@@ -14,7 +14,6 @@ import Link from 'next/link';
 
 const HeadphonesPage = () => {
   const { data, isLoading } = getAllProducts('headphones');
-  console.log(data?.data);
 
   return (
     <>
