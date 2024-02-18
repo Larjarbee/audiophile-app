@@ -1,21 +1,20 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
 import { audiophileApi } from "./baseUrl";
 
-export const getAllCarts = (query: string) => {
+export const getAllCarts = () => {
   return useQuery({
-    queryKey: ["products"],
+    queryKey: ["carts"],
     queryFn: () => {
       return audiophileApi.get("/cart");
     },
   });
 };
 
-export const getProduct = (id: any) => {
+export const addToCart = (items: any) => {
   return useQuery({
-    queryKey: ["product"],
+    queryKey: ["carts"],
     queryFn: () => {
-      return audiophileApi.get(`/products/${id}`);
+      return audiophileApi.post("/cart", items);
     },
   });
 };
