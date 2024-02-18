@@ -6,10 +6,11 @@ import EarphonePng from '../assets/shared/desktop/image-category-thumbnail-earph
 import SpeakersPng from '../assets/home/desktop/image-speaker-zx9.png';
 import SpeakerZxPng from '../assets/home/desktop/image-speaker-zx7.jpg';
 import EarphoneZxPng from '../assets/home/desktop/image-earphones-yx1.jpg';
-import ManPng from '../assets/shared/desktop/image-best-gear.jpg';
 import { Button } from '@/components/ui/button';
 import Category from '@/components/shared/Category';
 import BringCard from '@/components/shared/BringCard';
+import Link from 'next/link';
+import { RouteEnum } from '@/constants/RouteConstant';
 
 export default function Home() {
   return (
@@ -38,7 +39,9 @@ export default function Home() {
             <br /> enthusiast.
           </h2>
 
-          <Button>SEE PRODUCT</Button>
+          <Button>
+            <Link href={`${RouteEnum.HEADPHONES}/4`}>SEE PRODUCT</Link>
+          </Button>
         </div>
       </section>
 
@@ -61,7 +64,9 @@ export default function Home() {
               <br /> sound.
             </h2>
 
-            <Button variant='secondary'>SEE PRODUCT</Button>
+            <Button variant='secondary'>
+              <Link href={`${RouteEnum.SPEAKERS}/6`}>SEE PRODUCT</Link>
+            </Button>
           </div>
         </section>
 
@@ -78,7 +83,9 @@ export default function Home() {
 
           <div className='absolute space-y-5 top-[30%] left-40 text-Black-dark'>
             <h1 className=' text-5xl'>ZX7 SPEAKER</h1>
-            <Button variant='outline'>SEE PRODUCT</Button>
+            <Button variant='outline'>
+              <Link href={`${RouteEnum.SPEAKERS}/5`}>SEE PRODUCT</Link>
+            </Button>
           </div>
         </section>
 
@@ -93,7 +100,9 @@ export default function Home() {
           <div className='rounded-[12px] bg-Grey-dark h-full flex flex-col items-center justify-center'>
             <div className='space-y-5 p-5'>
               <h1 className='text-4xl lg:text-5xl'>YX1 EARPHONES</h1>
-              <Button variant='outline'>SEE PRODUCT</Button>
+              <Button variant='outline'>
+                <Link href={`${RouteEnum.EARPHONES}/1`}>SEE PRODUCT</Link>
+              </Button>
             </div>
           </div>
         </section>
@@ -103,9 +112,3 @@ export default function Home() {
     </>
   );
 }
-
-const Categories = [
-  { name: 'HEADPHONES', path: '/headphones', img: HeadphonePng },
-  { name: 'SPEAKERS', path: '/speakers', img: SpeakerPng },
-  { name: 'EARPHONES', path: '/earphones', img: EarphonePng },
-];

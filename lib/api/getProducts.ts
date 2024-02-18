@@ -1,13 +1,9 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import axios from 'axios';
-
-export const audiophileApi = axios.create({
-  baseURL: 'http://localhost:4001',
-});
+import { useQuery } from "@tanstack/react-query";
+import { audiophileApi } from "./baseUrl";
 
 export const getAllProducts = (query: string) => {
   return useQuery({
-    queryKey: ['products'],
+    queryKey: ["products"],
     queryFn: () => {
       return audiophileApi.get(`/products?category=${query}`);
     },
@@ -16,7 +12,7 @@ export const getAllProducts = (query: string) => {
 
 export const getProduct = (id: any) => {
   return useQuery({
-    queryKey: ['product'],
+    queryKey: ["product"],
     queryFn: () => {
       return audiophileApi.get(`/products/${id}`);
     },

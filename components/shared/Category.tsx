@@ -5,6 +5,7 @@ import SpeakerPng from '../../assets/shared/desktop/image-category-thumbnail-spe
 import EarphonePng from '../../assets/shared/desktop/image-category-thumbnail-earphones.png';
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
+import { RouteEnum } from '@/constants/RouteConstant';
 
 const Category = () => {
   return (
@@ -23,7 +24,7 @@ const Category = () => {
           <h4 className=' font-semibold'>{category.name}</h4>
 
           <Link
-            href='/'
+            href={category.path}
             className='flex justify-center gap-1 pt-2 text-sm items-center'
           >
             <h4 className=' opacity-50'>SHOP</h4>
@@ -38,7 +39,7 @@ const Category = () => {
 export default Category;
 
 const Categories = [
-  { name: 'HEADPHONES', path: '/headphones', img: HeadphonePng },
-  { name: 'SPEAKERS', path: '/speakers', img: SpeakerPng },
-  { name: 'EARPHONES', path: '/earphones', img: EarphonePng },
+  { name: 'HEADPHONES', path: RouteEnum.HEADPHONES, img: HeadphonePng },
+  { name: 'SPEAKERS', path: RouteEnum.SPEAKERS, img: SpeakerPng },
+  { name: 'EARPHONES', path: RouteEnum.EARPHONES, img: EarphonePng },
 ];

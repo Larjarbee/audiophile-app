@@ -9,7 +9,7 @@ import { Minus, Plus } from 'lucide-react';
 import BringCard from '@/components/shared/BringCard';
 import Category from '@/components/shared/Category';
 
-const HeadphonesDetailPage = () => {
+const EarphonesDetailPage = () => {
   const { id } = useParams();
   const { data } = getProduct(id);
 
@@ -76,4 +76,4 @@ const HeadphonesDetailPage = () => {
   );
 };
 
-export default HeadphonesDetailPage;
+export default EarphonesDetailPage;

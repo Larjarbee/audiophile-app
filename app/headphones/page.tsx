@@ -42,6 +42,7 @@ const HeadphonesPage = () => {
             </div>
           </section>
         ))}
+
         {/* <section className='grid grid-cols-1 items-center gap-20 md:grid-cols-2'>
           <div className='space-y-5 text-Black-dark'>
             <h1 className='text-5xl font-semibold'>
